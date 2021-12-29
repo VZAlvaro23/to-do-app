@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+:root {
+  --gradient-bg: linear-gradient(118.28deg, #FF5A51 10.18%, #D604B4 85.11%);
+  --font-family: 'Roboto', sans-serif;
+  --otro-bg: white;
+}
