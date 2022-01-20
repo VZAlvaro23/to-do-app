@@ -1,0 +1,85 @@
+.task {
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 100;
+  line-height: 21px;
+  background: linear-gradient(90deg, #2e2e2e 0%, rgba(46, 46, 46, 0) 119.63%);
+  color: white;
+  transition: opacity 1s;
+}
+
+/** Checkbox */
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3em;
+  min-height: 25px;
+  color: white;
+  border: 1px solid;
+  border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+}
+
+.checkbox:hover {
+  box-shadow: 0px 0px 18px rgba(224, 32, 124, 0.5);
+}
+
+.checked-checkbox {
+  background: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%);
+}
+.unchecked-checkbox {
+  background: none;
+}
+
+.fa-check {
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+.checked-check {
+  opacity: 1;
+}
+
+.unchecked-check {
+  opacity: 0;
+}
+
+/** Task text */
+
+.task p {
+  margin-left: 1.7rem;;
+}
+
+.checked-p {
+  opacity: 0.5;
+}
+
+.unchecked-p {
+  opacity: 1;
+}
+
+/** Trash icon */
+
+.fa-trash {
+  font-size: 1rem;
+  margin-left: auto;
+  background: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%);
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+}
+
+.fa-trash:hover {
+  box-shadow: 0px 0px 18px rgba(224, 32, 124, 0.5);
+}
+
+
+
