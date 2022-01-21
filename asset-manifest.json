@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/to-do-app/static/css/main.b60f0d6a.css",
-    "main.js": "/to-do-app/static/js/main.0a5f2944.js",
+    "main.css": "/to-do-app/static/css/main.cfc1953d.css",
+    "main.js": "/to-do-app/static/js/main.8aeda94d.js",
     "static/media/vector-grande.png": "/to-do-app/static/media/vector-grande.d2eeba08fd1abea6f29a.png",
     "static/media/vector-mediano.png": "/to-do-app/static/media/vector-mediano.6e7ac6bb690b00182172.png",
     "static/media/closest-vector.png": "/to-do-app/static/media/closest-vector.127e996c8d1fbd7437e2.png",
@@ -9,11 +9,11 @@
     "static/media/vector-pequeno.png": "/to-do-app/static/media/vector-pequeno.be0873ed430d776f5cee.png",
     "static/media/vector-muy-pequeno.png": "/to-do-app/static/media/vector-muy-pequeno.fb1220826ed46f2508c6.png",
     "index.html": "/to-do-app/index.html",
-    "main.b60f0d6a.css.map": "/to-do-app/static/css/main.b60f0d6a.css.map",
-    "main.0a5f2944.js.map": "/to-do-app/static/js/main.0a5f2944.js.map"
+    "main.cfc1953d.css.map": "/to-do-app/static/css/main.cfc1953d.css.map",
+    "main.8aeda94d.js.map": "/to-do-app/static/js/main.8aeda94d.js.map"
   },
   "entrypoints": [
-    "static/css/main.b60f0d6a.css",
-    "static/js/main.0a5f2944.js"
+    "static/css/main.cfc1953d.css",
+    "static/js/main.8aeda94d.js"
   ]
 }
