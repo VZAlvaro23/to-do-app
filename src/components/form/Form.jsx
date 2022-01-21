@@ -61,7 +61,7 @@ const Form = ({
         className="submit-button"
         type="submit"
       >
-        <i className="fa fa-plus"></i>
+        +
       </button>
       <input
         onFocus={focusedInput}

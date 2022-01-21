@@ -71,7 +71,7 @@ function App() {
 
   return (
     <div className="App">
-      <img
+      {/* <img
         src={smallestVector}
         className="smallest-vector"
         alt="smalles-vector"
@@ -97,7 +97,7 @@ function App() {
         src={furthestVector}
         className="furthest-vector"
         alt="furthest-vector"
-      ></img>
+      ></img> */}
       <div className="main-container">
         <header>
           <h1>TASKS</h1>
