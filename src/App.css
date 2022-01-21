@@ -10,7 +10,7 @@ body {
   font-family: "Roboto", sans-serif;
   color: white;
   background: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%);
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .App {
@@ -54,37 +54,39 @@ header h1 {
 
 .smallest-vector {
   position: absolute;
-  top: -20px;
-  left: 200px;
+  top: -5%;
+  left: 15%;
   animation: spin 20s linear infinite;
 }
 
 .small-vector {
   position: absolute;
-  bottom: 20px;
-  right: 100px;
+  bottom: 10%;
+  right: 10%;
   animation: spin reverse 20s linear infinite;
+  z-index: -1;
 }
 
 .medium-vector {
   position: absolute;
-  top: 30px;
-  right: 300px;
+  top: 5%;
+  right: 20%;
   z-index: -1;
   animation: spin 20s linear infinite;
 }
 
 .big-vector {
   position: absolute;
-  left: -100px;
-  bottom: -100px;
+  left: -10%;
+  bottom: -20%;
+  z-index: -1;
   animation: spin reverse 20s linear infinite;
 }
 
 .closest-vector {
   position: absolute;
-  left: 350px;
-  top: 200px;
+  left: 20%;
+  top: 20%;
   filter: blur(5px);
   animation: spin reverse 40s linear infinite;
   z-index: -1;
@@ -92,18 +94,19 @@ header h1 {
 
 .further-vector {
   position: absolute;
-  right: 100px;
-  top: 300px;
+  right: 10%;
+  top: 40%;
   filter: blur(10px);
   animation: spin reverse 20s linear infinite;
+  z-index: -1;
 }
 
 .furthest-vector {
   position: absolute;
-  left: 600px;
-  bottom: 20px;
+  left: 40%;
+  bottom: 2%;
   z-index: -1;
-  filter: blur(58px);
+  filter: blur(20px);
 }
 
 /** Background spin animation */

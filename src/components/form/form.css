@@ -75,7 +75,7 @@ form {
 }
 
 .todo-select:hover {
-  text-shadow: 0px 0px 18px rgba(224, 32, 124, 1);
+  /* text-shadow: 0px 0px 18px rgba(224, 32, 124, 1); */
   background: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%);
   -webkit-background-clip: text;
   color: transparent;
