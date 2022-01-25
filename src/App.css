@@ -94,7 +94,7 @@ header h1 {
 
 .further-vector {
   position: absolute;
-  right: 10%;
+  right: 5%;
   top: 40%;
   filter: blur(10px);
   animation: spin reverse 20s linear infinite;
@@ -120,7 +120,20 @@ header h1 {
 /** Media queries */
 
 @media screen and (max-width: 450px) {
+
   .main-container {
-    padding: 1rem 1rem 0 1rem;
+    padding: 4rem 1rem 0 1rem;
+  }
+
+  form {
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+  }
+
+  .todo-list .task {
+    padding: 1rem 2rem 1rem 1rem;
+  }
+
+  img {
+    display: none;
   }
 }

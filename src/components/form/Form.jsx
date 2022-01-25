@@ -10,6 +10,7 @@ const Form = ({
   setStatus,
   id,
   setId,
+  categories,
 }) => {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
@@ -30,7 +31,15 @@ const Form = ({
 
   const submitTodoHandler = (e) => {
     e.preventDefault();
-    setTodos([...todos, { text: inputText, completed: false, id: nextId() }]);
+    setTodos([
+      ...todos,
+      {
+        text: inputText,
+        completed: false,
+        id: nextId(),
+        category: categories,
+      },
+    ]);
     setInputText("");
   };
 
@@ -55,7 +64,7 @@ const Form = ({
   };
 
   return (
-    <form id="submit-container">
+    <form id="submit-container" className="submit-container">
       <button
         onClick={submitTodoHandler}
         className="submit-button"

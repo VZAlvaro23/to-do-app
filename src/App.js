@@ -1,7 +1,7 @@
 //Import components useState, useEffect and own components
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Form, TodoList } from "./components";
+import { Form, TodoList, Category } from "./components";
 
 //Import icons from fontawasome
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -31,6 +31,10 @@ function App() {
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [id, setId] = useState(0);
 
+  //Filtro de categorías
+  const [categories, setCategories] = useState("default");
+  const [filteredCategories, setFilteredCategories] = useState([]);
+
   useEffect(() => {
     getLocalTodos();
   }, []);
@@ -39,6 +43,10 @@ function App() {
     filterHandler();
     saveLocalTodos();
   }, [todos, status]);
+
+    useEffect(() => {
+      categoryHandler();
+    }, [filteredTodos]);
 
   const filterHandler = () => {
     switch (status) {
@@ -56,10 +64,6 @@ function App() {
     }
   };
 
-  const saveLocalTodos = () => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  };
-
   const getLocalTodos = () => {
     if (localStorage.getItem("todos") === null)
       localStorage.setItem("todos", JSON.stringify([]));
@@ -67,6 +71,17 @@ function App() {
       let todoLocal = JSON.parse(localStorage.getItem("todos"));
       setTodos(todoLocal);
     }
+  };
+
+  //Filtrado de categorías
+  const categoryHandler = () => {
+    setFilteredCategories(
+      filteredTodos.filter((todo) => todo.category === categories)
+    );
+  };
+
+  const saveLocalTodos = () => {
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   return (
@@ -102,6 +117,11 @@ function App() {
         <header>
           <h1>TASKS</h1>
         </header>
+        <Category
+          categories={categories}
+          setCategories={setCategories}
+          categoryHandler={categoryHandler}
+        />
         <Form
           inputText={inputText}
           todos={todos}
@@ -111,11 +131,14 @@ function App() {
           status={status}
           id={id}
           setId={setId}
+          categories={categories}
         />
         <TodoList
           setTodos={setTodos}
           todos={todos}
           filteredTodos={filteredTodos}
+          categoryHandler={categoryHandler}
+          filteredCategories={filteredCategories}
         />
       </div>
     </div>

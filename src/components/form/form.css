@@ -1,5 +1,7 @@
-form {
+.submit-container {
   display: flex;
+    margin-top: 2rem;
+
   outline: none;
   border: 1px solid;
   border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
@@ -72,6 +74,7 @@ form {
   /* box-shadow: 0px 0px 18px rgba(224, 32, 124, 0.25); */
   cursor: pointer;
   transition: text-shadow 0.5s;
+  z-index: 10;
 }
 
 .todo-select:hover {
@@ -87,7 +90,7 @@ form {
 
 .submit-angle-down {
   font-size: 1.5em;
-  margin-left: auto;
+  /* margin-left: auto; */
   background: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%);
   -webkit-background-clip: text;
   color: transparent;
@@ -98,16 +101,17 @@ form {
 
 .todo-options {
   position: absolute;
+  margin-top: 1px;
   right: 0;
   width: auto;
   font-size: 0.8em;
   border-bottom: 1px solid;
   border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
-  /* background: linear-gradient(
+  background: linear-gradient(
     124.51deg,
-    #161010 29.63%,
-    rgba(22, 16, 16, 0) 84.74%
-  ); */
+    rgb(37, 37, 37, 90%),
+    rgb(16, 16, 16, 90%) 84.74%
+  );
   list-style: none;
   transition: all 0.4s ease;
 }

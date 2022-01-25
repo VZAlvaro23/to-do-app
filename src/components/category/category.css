@@ -1,0 +1,94 @@
+/** Selected category container */
+
+.category-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
+  box-shadow: 0 4px 2px -2px rgba(249, 78, 96, 0.25);
+}
+
+/** Selected category text */
+
+.category-container span {
+  margin-left: 1.7rem;
+}
+
+/** Botón con la flecha */
+
+.category-arrow-button {
+  margin-left: auto;
+  margin-right: 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.category-arrow-button i {
+  transition: text-shadow 0.5s;
+}
+
+.category-arrow-button i:hover {
+  text-shadow: 0px 0px 18px rgba(224, 32, 124, 1),
+    0px 0px 18px rgba(224, 32, 124, 1);
+}
+
+/** Form */
+
+
+/** Categoría input */
+.category-input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.7rem;
+  color: white;
+  background: none;
+  border: none;
+}
+
+/** Div para posicionar el contenedor de las opciones */
+
+.category-options-container {
+  position: relative;
+}
+
+/** Contenedor de las opciones */
+
+.category-options {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  background: linear-gradient(
+    124.51deg,
+    rgb(37, 37, 37, 90%),
+    rgb(16, 16, 16, 90%) 84.74%
+  );
+  list-style: none;
+  transition: all 0.4s ease;
+  z-index: 20;
+}
+
+/** Texto de las opciones */
+
+.category-options span {
+  padding: 0.7em 0 0.7em 3.7em;
+  font-size: 1rem;
+  font-weight: 100;
+  color: white;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
+  cursor: pointer;
+}
+.category-options span:last-child {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
+}
+.category-options span:hover {
+  background: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
