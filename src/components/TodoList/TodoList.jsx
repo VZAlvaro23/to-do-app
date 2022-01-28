@@ -9,19 +9,31 @@ const TodoList = ({
   filteredTodos,
   categoryHandler,
   filteredCategories,
+  categories
 }) => {
   return (
     <div className="todo-container">
       <ul className="todo-list">
-        {filteredCategories.map((todo) => (
-          <Todo
-            text={todo.text}
-            todo={todo}
-            key={todo.id}
-            setTodos={setTodos}
-            todos={todos}
-          />
-        ))}
+        {categories !== "category" &&
+          filteredCategories.map((todo) => (
+            <Todo
+              text={todo.text}
+              todo={todo}
+              key={todo.id}
+              setTodos={setTodos}
+              todos={todos}
+            />
+          ))}
+        {categories === "category" &&
+          filteredTodos.map((todo) => (
+            <Todo
+              text={todo.text}
+              todo={todo}
+              key={todo.id}
+              setTodos={setTodos}
+              todos={todos}
+            />
+          ))}
       </ul>
     </div>
   );

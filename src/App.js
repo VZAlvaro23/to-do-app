@@ -32,8 +32,10 @@ function App() {
   const [id, setId] = useState(0);
 
   //Filtro de categorías
-  const [categories, setCategories] = useState("default");
+  const [categories, setCategories] = useState("category");
   const [filteredCategories, setFilteredCategories] = useState([]);
+
+  const [options, setOptions] = useState([]);
 
   useEffect(() => {
     getLocalTodos();
@@ -41,8 +43,9 @@ function App() {
 
   useEffect(() => {
     filterHandler();
+    categoryHandler();
     saveLocalTodos();
-  }, [todos, status]);
+  }, [todos, status, categories]);
 
     useEffect(() => {
       categoryHandler();
@@ -71,6 +74,12 @@ function App() {
       let todoLocal = JSON.parse(localStorage.getItem("todos"));
       setTodos(todoLocal);
     }
+    if (localStorage.getItem("options") === null)
+      localStorage.setItem("options", JSON.stringify([]));
+    else {
+      let optionLocal = JSON.parse(localStorage.getItem("options"));
+      setOptions(optionLocal);
+    }
   };
 
   //Filtrado de categorías
@@ -82,6 +91,7 @@ function App() {
 
   const saveLocalTodos = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("options", JSON.stringify(options));
   };
 
   return (
@@ -121,6 +131,8 @@ function App() {
           categories={categories}
           setCategories={setCategories}
           categoryHandler={categoryHandler}
+          options={options}
+          setOptions={setOptions}
         />
         <Form
           inputText={inputText}
@@ -138,6 +150,7 @@ function App() {
           todos={todos}
           filteredTodos={filteredTodos}
           categoryHandler={categoryHandler}
+          categories={categories}
           filteredCategories={filteredCategories}
         />
       </div>

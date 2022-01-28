@@ -1,7 +1,6 @@
 .submit-container {
   display: flex;
-    margin-top: 2rem;
-
+  margin-top: 2rem;
   outline: none;
   border: 1px solid;
   border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;

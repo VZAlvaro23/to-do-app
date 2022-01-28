@@ -31,16 +31,20 @@ const Form = ({
 
   const submitTodoHandler = (e) => {
     e.preventDefault();
-    setTodos([
-      ...todos,
-      {
-        text: inputText,
-        completed: false,
-        id: nextId(),
-        category: categories,
-      },
-    ]);
-    setInputText("");
+    if (inputText === "") {
+      window.alert("You must introduce something!");
+    } else {
+      setTodos([
+        ...todos,
+        {
+          text: inputText,
+          completed: false,
+          id: nextId(),
+          category: categories,
+        },
+      ]);
+      setInputText("");
+    }
   };
 
   const statusHandler = (e) => {

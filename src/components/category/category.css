@@ -6,7 +6,7 @@
   align-items: center;
   border-bottom: 3px solid;
   border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
-  box-shadow: 0 4px 2px -2px rgba(249, 78, 96, 0.25);
+  /* box-shadow: 0 4px 2px -2px rgba(249, 78, 96, 0.25); */
 }
 
 /** Selected category text */
@@ -45,12 +45,30 @@
   color: white;
   background: none;
   border: none;
+  text-transform: uppercase
+}
+
+.category-input:focus {
+  outline: none;
+}
+
+.category-input::placeholder {
+  color: white;
 }
 
 /** Div para posicionar el contenedor de las opciones */
 
 .category-options-container {
   position: relative;
+}
+
+.category-options-container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color:rgba(224, 32, 124, 1);
+  filter: blur(4px);
 }
 
 /** Contenedor de las opciones */
@@ -74,21 +92,27 @@
 
 /** Texto de las opciones */
 
-.category-options span {
+.category-options .option {
+  display: flex;
   padding: 0.7em 0 0.7em 3.7em;
   font-size: 1rem;
   font-weight: 100;
   color: white;
   border-bottom: 1px solid;
   border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
+  text-transform: uppercase;
   cursor: pointer;
 }
 .category-options span:last-child {
   border-bottom: 2px solid;
   border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
 }
-.category-options span:hover {
+.category-options span span:hover {
   background: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%);
   -webkit-background-clip: text;
   color: transparent;
+}
+
+.category-options .fa-trash {
+  margin-right: 1rem;
 }
