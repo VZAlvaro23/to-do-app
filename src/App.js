@@ -1,9 +1,9 @@
-//Import components useState, useEffect and own components
+// Import components useState, useEffect and own components
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Form, TodoList, Category } from "./components";
 
-//Import icons from fontawasome
+// Import icons from fontawasome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -13,7 +13,7 @@ import {
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 
-//Import images
+// Import images
 import smallestVector from "./assets/vector-muy-pequeno.png";
 import smallVector from "./assets/vector-pequeno.png";
 import mediumVector from "./assets/vector-mediano.png";
@@ -25,17 +25,16 @@ import furthestVector from "./assets/furthest-vector.png";
 library.add(fab, faTrash, faCheck, faPlus, faAngleDown, faPlus);
 
 function App() {
-  const [inputText, setInputText] = useState("");
-  const [todos, setTodos] = useState([]);
-  const [status, setStatus] = useState("All");
-  const [filteredTodos, setFilteredTodos] = useState([]);
-  const [id, setId] = useState(0);
-
-  //Filtro de categorías
   const [categories, setCategories] = useState("category");
   const [filteredCategories, setFilteredCategories] = useState([]);
-
   const [options, setOptions] = useState([]);
+
+  const [inputText, setInputText] = useState("");
+  const [id, setId] = useState(0);
+  const [todos, setTodos] = useState([]);
+
+  const [status, setStatus] = useState("All");
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
   useEffect(() => {
     getLocalTodos();
@@ -47,10 +46,11 @@ function App() {
     saveLocalTodos();
   }, [todos, status, categories]);
 
-    useEffect(() => {
-      categoryHandler();
-    }, [filteredTodos]);
+  useEffect(() => {
+    categoryHandler();
+  }, [filteredTodos]);
 
+  // Completed/Uncompleted filter
   const filterHandler = () => {
     switch (status) {
       case "Completed":
@@ -67,6 +67,14 @@ function App() {
     }
   };
 
+  // Category filter
+  const categoryHandler = () => {
+    setFilteredCategories(
+      filteredTodos.filter((todo) => todo.category === categories)
+    );
+  };
+
+  // Getting tados and categories from lacoalStorage
   const getLocalTodos = () => {
     if (localStorage.getItem("todos") === null)
       localStorage.setItem("todos", JSON.stringify([]));
@@ -80,22 +88,24 @@ function App() {
       let optionLocal = JSON.parse(localStorage.getItem("options"));
       setOptions(optionLocal);
     }
+    if (localStorage.getItem("categories") === null)
+      localStorage.setItem("categories", JSON.stringify("categories"));
+    else {
+      let optionLocal = JSON.parse(localStorage.getItem("categories"));
+      setCategories(optionLocal);
+    }
   };
 
-  //Filtrado de categorías
-  const categoryHandler = () => {
-    setFilteredCategories(
-      filteredTodos.filter((todo) => todo.category === categories)
-    );
-  };
-
+  // Saving todos and categories at localStorage
   const saveLocalTodos = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
     localStorage.setItem("options", JSON.stringify(options));
+    localStorage.setItem("categories", JSON.stringify(categories));
   };
 
   return (
     <div className="App">
+      {/* Background images */}
       <img
         src={smallestVector}
         className="smallest-vector"
@@ -123,6 +133,7 @@ function App() {
         className="furthest-vector"
         alt="furthest-vector"
       ></img>
+      {/* Container */}
       <div className="main-container">
         <header>
           <h1>TASKS</h1>

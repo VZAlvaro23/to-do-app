@@ -1,74 +1,66 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./category.css";
 
-const Category = ({
-  categories,
-  setCategories,
-  categoryHandler,
-  options,
-  setOptions,
-}) => {
+const Category = ({ categories, setCategories, options, setOptions }) => {
   const [inputText, setInputText] = useState("");
+  const [isActive, setIsActive] = useState(false);
 
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
 
-  // Función para remplazar el contenido de las opciones con el del input
-  const categoryHandler1 = (e) => {
-    setCategories(e.target.textContent);
-    console.log(categories);
-    e.target.textContent = categories;
-  };
-
-  // Función para mostrar/ocultar las categorías
-  const categoryOptions = document.getElementById("category-options");
+  // Toggling options visibility
   function toogleOptions(e) {
     e.preventDefault();
-    categoryOptions.classList.toggle("visibility-hidden");
-    categoryOptions.classList.toggle("visibility-visible");
+    setIsActive(!isActive);
   }
 
-  // Función para añadir categorías al "select"
-  // const addCategory = (e) => {
-  //   e.preventDefault();
-  //   const categoryOptions = document.getElementById("category-options");
-  //   const categoryInput = document.getElementById("category-input");
-  //   const newCategory = document.createElement('span');
-  //   const categoryName = categoryInput.value;
-  //   newCategory.textContent = categoryName;
-  //   newCategory.onclick = categoryHandler();
-  //   categoryOptions.appendChild(newCategory);
-  //   categoryInput.value = "";
-  // };
-
-  //Función para añadir categorías a la lista
-
+  // Adding categories
   const addCategory = (e) => {
     e.preventDefault();
     if (inputText === "") {
       window.alert("You must introduce something!");
     } else {
-      setOptions([...options, categories]);
+      setOptions([
+        ...options,
+        { name: categories, id: new Date().getTime().toString() },
+      ]);
       setInputText("");
       setCategories(inputText);
     }
   };
 
+  // Category option component
+  const Option = ({ text, option }) => {
+    // Changes the category for the selected one
+    const categoryHandler1 = () => {
+      setCategories(option.name);
+      option.name = categories;
+    };
+
+    // Category deletion
+    const deleteHandler = () => {
+      setOptions(options.filter((el) => el.id !== option.id));
+      console.log(option.id);
+    };
+
+    return (
+      <span className="option">
+        <span onClick={categoryHandler1}>{text}</span>
+
+        {option.name === "category" || (
+          <i className="fa fa-trash" onClick={deleteHandler}></i>
+        )}
+      </span>
+    );
+  };
+
   return (
     <>
       <form className="category-container">
-        {/* <form> */}
-        <button
-          type="submit"
-          className="submit-button"
-          // onClick={categoryHandler}
-          onClick={addCategory}
-          // onSubmit={categoryHandler}
-        >
+        <button type="submit" className="submit-button" onClick={addCategory}>
           +
         </button>
-        {/* <span onChange={categoryHandler}>{categories.toUpperCase()}</span> */}
         <input
           type="text"
           className="category-input"
@@ -78,21 +70,20 @@ const Category = ({
           value={inputText}
         />
 
-        {/* </form> */}
         <button className="category-arrow-button" onClick={toogleOptions}>
           <i className="fa fa-angle-down submit-angle-down"></i>
         </button>
       </form>
       <div className="category-options-container">
         <div
-          className="category-options visibility-visible"
-          id="category-options"
+          className={
+            isActive
+              ? "category-options visibility-visible"
+              : "category-options visibility-hidden"
+          }
         >
           {options.map((option) => (
-            <span className="option">
-              <span onClick={categoryHandler1}>{option}</span>
-              <i className="fa fa-trash"></i>
-            </span>
+            <Option key={option.id} text={option.name} option={option} />
           ))}
         </div>
       </div>

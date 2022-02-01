@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./form.css";
 
 const Form = ({
@@ -12,10 +12,14 @@ const Form = ({
   setId,
   categories,
 }) => {
+  const [isFocused, setIsFocused] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
 
+  // Generates an exclusie ID
   const nextId = () => {
     if (localStorage.getItem("id") === null) {
       id += 1;
@@ -29,6 +33,7 @@ const Form = ({
     return id;
   };
 
+  // Submits the todo object
   const submitTodoHandler = (e) => {
     e.preventDefault();
     if (inputText === "") {
@@ -47,28 +52,29 @@ const Form = ({
     }
   };
 
+  // Sets Completed/Uncompleted
   const statusHandler = (e) => {
     setStatus(e.target.textContent);
     e.target.textContent = status;
   };
 
-  const submitContainer = document.getElementById("submit-container");
-
+  // Adding style to input when focused
   const focusedInput = () => {
-    submitContainer.classList.add("focused");
+    setIsFocused(!isFocused);
   };
 
-  const unfocusedInput = () => {
-    submitContainer.classList.remove("focused");
-  };
-  const options = document.getElementById("todo-options");
+  // Toggling options visibility
   const addingVisibility = () => {
-    options.classList.toggle("visibility-hidden");
-    options.classList.toggle("visibility-visible");
+    setIsActive(!isActive);
   };
 
   return (
-    <form id="submit-container" className="submit-container">
+    <form
+      id="submit-container"
+      className={
+        isFocused ? "submit-container focused" : "submit-container unfocused"
+      }
+    >
       <button
         onClick={submitTodoHandler}
         className="submit-button"
@@ -78,7 +84,7 @@ const Form = ({
       </button>
       <input
         onFocus={focusedInput}
-        onBlur={unfocusedInput}
+        onBlur={focusedInput}
         id="todo-input"
         className="todo-input"
         value={inputText}
@@ -95,7 +101,13 @@ const Form = ({
           <span value="all">{status}</span>
           <i className="fa fa-angle-down submit-angle-down"></i>
         </button>
-        <ul className="todo-options visibility-hidden" id="todo-options">
+        <ul
+          className={
+            !isActive
+              ? "todo-options visibility-hidden"
+              : "todo-options visibility-visible"
+          }
+        >
           <li onClick={statusHandler}>Completed</li>
           <li onClick={statusHandler}>Uncompleted</li>
         </ul>

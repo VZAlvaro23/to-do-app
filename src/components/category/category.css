@@ -103,7 +103,7 @@
   text-transform: uppercase;
   cursor: pointer;
 }
-.category-options span:last-child {
+.category-options > span:last-child {
   border-bottom: 2px solid;
   border-image: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%) 1;
 }

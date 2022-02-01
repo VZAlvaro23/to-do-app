@@ -9,10 +9,7 @@
 body {
   font-family: "Roboto", sans-serif;
   color: white;
-  margin-top: auto;
-  /* background: linear-gradient(118.28deg, #ff5a51 10.18%, #d604b4 85.11%); */
   background: linear-gradient(90deg, #ff5a51 10.18%, #d604b4 85.11%);
-  /* overflow: hidden; */
 }
 
 .App {
@@ -24,11 +21,9 @@ body {
 }
 
 /** Contenedor */
-
 .main-container {
   min-height: 80vh;
   max-height: auto;
-  width: 470px;
   padding: 4rem 4rem 4rem 4rem;
   margin: 4rem 1rem 4rem 1rem;
   background: linear-gradient(
@@ -42,7 +37,6 @@ body {
 }
 
 /** Header */
-
 header {
   margin-bottom: 2rem;
 }
@@ -55,7 +49,6 @@ header h1 {
 }
 
 /** Vectores de fondo */
-
 .smallest-vector {
   position: absolute;
   top: -5%;
@@ -114,7 +107,6 @@ header h1 {
 }
 
 /** Background spin animation */
-
 @keyframes spin {
   100% {
     transform: rotate(360deg);
@@ -122,22 +114,52 @@ header h1 {
 }
 
 /** Media queries */
-
 @media screen and (max-width: 450px) {
-
   .main-container {
     padding: 4rem 1rem 4rem 1rem;
   }
 
   form {
-    padding: 0.5rem 1rem 0.5rem 0.5rem;
-  }
-
-  .todo-list .task {
-    padding: 1rem 2rem 1rem 1rem;
+    font-size: 1.5rem;
+    padding: 0rem 0rem 0rem 0.5rem;
   }
 
   img {
     display: none;
+  }
+
+  form .submit-button {
+    font-size: 2rem;
+  }
+
+  button .fa-angle-down {
+    font-size: 1.5rem;
+    padding-right: 0.1rem;
+  }
+
+  .category-container input {
+    font-size: 1.5rem;
+  }
+
+  .category-options-container span {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+  }
+
+  .category-options-container .fa-trash {
+    font-size: 1.5rem;
+  }
+
+  form .todo-input {
+    font-size: 1.5rem;
+  }
+
+  .todo-list .task {
+    font-size: 1.5rem;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  .todo-list .task .fa-trash {
+    font-size: 1.5rem;
   }
 }

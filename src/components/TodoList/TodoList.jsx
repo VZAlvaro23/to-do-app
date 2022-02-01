@@ -7,7 +7,6 @@ const TodoList = ({
   setTodos,
   todos,
   filteredTodos,
-  categoryHandler,
   filteredCategories,
   categories
 }) => {

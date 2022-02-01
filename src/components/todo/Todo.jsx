@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./todo.css";
 
 const Todo = ({ text, todo, todos, setTodos }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  // Setting todo status Completed/Uncompleted
   const checkCheckbox = () => {
     setTodos(
       todos.map((item) => {
@@ -17,15 +20,16 @@ const Todo = ({ text, todo, todos, setTodos }) => {
     );
   };
 
-  const deleteHandler = (e) => {
-    e.target.parentNode.style.opacity = 0;
+  // Deletes task
+  const deleteHandler = () => {
+    setIsActive(!isActive);
     setTimeout(() => {
       setTodos(todos.filter((el) => el.id !== todo.id));
     }, 1000);
   };
 
   return (
-    <div className="task">
+    <div className="task" style={{ opacity: isActive ? "0" : null }}>
       <div
         className={`checkbox ${
           todo.completed ? "checked-checkbox" : "unchecked-checkbox"
